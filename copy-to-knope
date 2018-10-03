@@ -1,0 +1,12 @@
+#!/bin/bash
+read list_of_files
+for file in $(echo $list_of_files); do
+   if [[ -r $file ]]; then
+      dname=$(dirname ${file})
+      if [ $dname != "." ]; then
+         scp -p ${file} knope:links/pic/d/${dname}
+      else
+         scp -p ${file} knope:links/pic/d/
+      fi
+   fi
+done

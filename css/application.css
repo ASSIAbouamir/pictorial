@@ -1,0 +1,16 @@
+.section_head_row,
+.sep,.sep-header { background-color: #0C4499; }
+.sep td { font-size: 0px; }
+.sep-header {color:white;font-size:1.5em;font-weight:bold}
+.section_head_row td table tr td { color: white; }
+.section_head_row td,
+.tr_data .sub_header { font-weight: bold; font-family: Arial; font-size: 12pt; }
+.section_head, .item_desc, .item_data { display: inline; font-family: verdana; }
+.section_head { font-weight: bold; font-size: 90%; }
+.item_desc { font-weight: bold; font-size: 70%; }
+.item_data {  }
+.tr_data { background-color: #EEEEDD; font-family: Arial; font-size: 10pt; vertical-align: top; }
+.tr_data td {  }
+.tr_data .sub_header { width: 100%; }
+.tr_data div.app_data { display: inline; font-weight: bold; }
+.section_table { width: 100%; background-color: black; }

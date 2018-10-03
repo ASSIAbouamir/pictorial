@@ -1,0 +1,65 @@
+<div class="gutter">
+
+    <h1 class="e2-caption">{{ @data->firstname }} {{ @data->lastname }}</h1>
+    <div class="flex row">
+        <div>
+            <div class="e2-pic">
+                <img src='{{ @data->image }}' class="pic-full">
+            </div>
+            <div>
+
+                <h4 class="e2-caption" class="email-wrap-hack">
+                    <span class="email-wrap">
+                        <a href="mailto:{{ @data->email | lower }}">{{ @data->email | lower }}</a>
+                    </span>
+                </h4>
+                <check if="{{ @data->officephone!='' }}">
+                    <true>
+                        <h5 class="e2-caption"><a href="tel:{{ @data->officephone }}">{{ @data->officephone }}</a></h5>
+                    </true>
+                    <false>
+                        <h5 class="e2-caption">no phone assigned</h5>
+                    </false>
+                </check>
+                <h5>
+                    {{ @data->company  | upper}}
+                    <check if="{{ @data->org_id!='' }}">
+                        &middot; <a href="{{@BASE}}{{ 'byorg' , 'orgid='.@data->org_id | alias }}">{{ @data->org_id  | upper}}</a>
+                    </check>
+                    <check if="{{ @data->location!='' }}">
+                        &middot; {{ @data->location | upper }}
+                    </check>
+                </h5>
+                <h5>
+                    <check if="{{ @data->mgr!='' }}">
+                        <true>
+                            <b>MGR:</b> <a href="{{@BASE}}{{ 'employee' , 'empno='.@data->managerid | alias }}">{{ @data->mgr  | upper}}</a>
+                        </true>
+                        <false>
+                            not set
+                        </false>
+                    </check>
+                </h5>
+                <h5>
+
+                </h5>
+            </div>
+        </div>
+
+    </div>
+
+
+    <h1>Direct Reports</h1>
+    <check if="{{ @data->hasReports }}">
+        <true>
+            <include href="thumbs.html" />
+        </true>
+        <false>
+            <div class="notice info w-25">
+                No Direct Reports
+            </div>
+        </false>
+    </check>
+
+
+</div>

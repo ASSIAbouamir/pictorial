@@ -1,0 +1,62 @@
+<div class="gutter">
+
+    <div class="cards flex row wrap">
+
+        <div class='card'>
+            <div class='parent-card-container'>
+                <div class='thumbnail-container'>
+                    <img src='{{ @data->image }}' width='168' height='126'>
+                </div>
+                <div class='desc-container'>
+                    <h2>{{ @data->lastname }}, {{ @data->firstname }}</h2>
+                    <h4 class="email-wrap-hack">
+                        <span class="email-wrap">
+                            <a href="mailto:{{ @data->email | lower }}">{{ @data->email | lower }}</a>
+                        </span>
+                    </h4>
+                    <check if="{{ @data->officephone!='' }}">
+                        <true>
+                            <h4><a href="tel:{{ @data->officephone }}">{{ @data->officephone }}</a></h4>
+                        </true>
+                        <false>
+                            <h5>no phone assigned</h5>
+                        </false>
+                    </check>
+                </div>
+                <div class="row left details-p">
+                    <h4>
+                        <span class="details">{{ @data->firstname  | upper}}</span> works for <span class="details">{{ @data->company  | upper}}</span> in the <span class="details"><a href="{{@BASE}}{{ 'byorg' , 'orgid='.@data->org_id | alias }}">{{ @data->org_id  | upper}}</a></span> home org.
+                        Current direct supervisor is <span class="details"><a href="{{@BASE}}{{ 'employee' , 'empno='.@data->managerid | alias }}">{{ @data->mgr  | upper}}</a></span>.
+                        Current office location is <span class="details">{{ @data->location | upper }}</span>.
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase reports-card direct-reports">
+            <h2>Direct Reports</h2>
+            <check if="{{ @data->hasReports }}">
+                <true>
+                        <repeat group="{{ @data->reports }}" value="{{ @report }}">
+                                <div class="outer">
+                                    <a href="{{@BASE}}{{ 'employee' , 'empno='.@report->id | alias }}">
+                                        <div class="inner">
+                                                <img src='{{ @report->image }}' width='56' height='42'>
+                                                <h4>{{ @report->lastname }}, {{ @report->firstname }}</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                        </repeat>
+                    </ul>
+                </true>
+                <false>
+                    <div class="notice info">
+                        No Direct Reports
+                    </div>
+                </false>
+            </check>
+        </div>
+
+    </div>
+
+</div>

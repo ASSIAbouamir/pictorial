@@ -1,0 +1,41 @@
+<table cellspacing="1" cellpadding="4" border="0" class="section_table">
+        <tbody>
+          <tr class="tr_data">
+            <td colspan="3" class="sep-header">
+                Application for {{ @data->applicant->first_name }} {{ @data->applicant->last_name }}
+            </td>
+            <td colspan="2" align="right" class="sep-header">
+                Date Applied: {{ @data->appliedJob->date_applied_formatted }}
+            </td>
+          </tr>
+          <tr class="tr_data">
+            <td colspan="5" class="sub_header">
+                Applicant Contact Information
+            </td>
+          </tr>
+          <tr class="tr_data">
+            <td>
+              First Name:
+              <br />&nbsp;<br />
+              <div class="app_data">
+                   {{ @data->applicant->first_name }}
+              </div>
+            </td>
+            <td>
+              Middle Name:
+              <br />&nbsp;<br />
+              <div class="app_data">
+                   {{ @data->applicant->middle_name }}
+              </div>
+            </td>
+            <td colspan="3">
+              Last Name:
+              <br />&nbsp;<br />
+              <div class="app_data">
+                   {{ @data->applicant->last_name }}
+              </div>
+            </td>
+          </tr>
+
+
+      </table>

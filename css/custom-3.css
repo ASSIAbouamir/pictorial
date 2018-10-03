@@ -1,0 +1,317 @@
+
+
+.submenu>ul>li>a:visited {
+    color: black !important;
+}
+a:visited {
+    color: #0068b0 !important;
+}
+.site-title-wrapper > a {
+    color: white !important;
+}
+
+
+
+
+
+.e2-pic>img {
+    /* display: block;
+    margin-top: 7px;
+    border-radius: 5px;
+    outline: none;
+    border: 0; */
+}
+
+.e2-caption-h1 {
+    margin-bottom: 1px !important;
+}
+.e2-caption{
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+.e2-dl {
+    margin-left: 0px;
+    margin-top: 40px;
+}
+.e2-dl > dt {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9em;
+    width: 150px;
+    text-align: right;
+}
+.e2-dl > dd {
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.inner {
+    padding: .5rem;
+    border-radius: 5px;
+}
+.inner-search {
+    padding: 5px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+}
+.inner:hover,.inner-search:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+a>.inner>h4 {
+    display: inline-block;
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+a>.inner>img {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* display: block; */
+    /* margin-top: 7px; */
+    /* border-radius: 5px; */
+    /* outline: none; */
+    /* border: 0; */
+}
+a>.inner>img {
+    /* display: inline-block; */
+}
+
+.pic-full,.pic-thumb {
+    border-radius: 5px;
+}
+.pic-full {
+    width: 224px;
+    height: 168px;
+}
+.pic-thumb {
+    width: 56px;
+    height: 42px;
+}
+.search-pic{
+    float: left;
+}
+.list-item {
+    /* padding-top: 1px; */
+    padding: 0px;
+    padding-left: 5px;
+    display: inline-block;
+}
+#search-ul {
+    padding-left: 0px;
+    margin-top: 0px;
+}
+#search-ul>li{
+    list-style-type: none;
+}
+
+.submenu {
+    height: 350px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.flex-item-with-employee {
+    flex: 0 0 calc( 100% / 3 );
+}
+.flex-item-all-thumbs {
+    flex: 0 0 calc( 100% / 4 );
+}
+
+.w-66 {
+    width: 66%
+}
+@media (max-width: 1240px) {
+    .flex.row.wrap > [class*=w-] {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .flex-item-with-employee {
+        flex: 0 0 calc( 100% / 4 );
+    }
+    .flex-item-all-thumbs {
+        flex: 0 0 calc( 100% / 5 );
+    }
+}
+@media (max-width: 1600px) {
+    .flex-item-with-employee {
+        flex: 0 0 calc( 100% / 3 );
+    }
+}
+@media (max-width: 1250px) {
+    .flex-item-all-thumbs {
+        flex: 0 0 calc( 100% / 3 );
+    }
+    .inner>h4 {
+        width: 100%;
+    }
+}
+@media (max-width: 1000px) {
+    .flex-item-with-employee,
+    .flex-item-all-thumbs {
+        flex: 0 0 calc( 100% / 2 );
+    }
+    .inner>h4 {
+        width: 100%;
+    }
+}
+
+.dropdown {
+    width: calc(100% - 30px);
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* background-color: #f9f9f9; */
+    background-color: white !important;
+    border-left: 5px solid #0f6fcf;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 100000000;
+}
+.dropdown-hidden {
+    display: none;
+}
+.dropdown-show {
+    display: block;
+}
+.search-results {
+    font-size: 1.0rem;
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+
+.hidden {
+    display: none;
+}
+/* Center the loader */
+/* https://www.w3schools.com/howto/howto_css_loader.asp */
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1001;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    /* border-top: 16px solid #3498db; */
+    border-left: 16px solid #00cbeb; /* dyneticscyan */
+    border-top: 16px solid #0068b0; /* dyneticsblue,  blue ; */
+    border-right: 16px solid #789ca7; /* dyneticsbluegray, green;*/
+    border-bottom: 16px solid #cb2026; /* dyneticsfirered, red; */
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
+  /* .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1001;
+
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes sk-scaleout {
+    0% { -webkit-transform: scale(0) }
+    100% {
+      -webkit-transform: scale(1.0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes sk-scaleout {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+    }
+  } */
+
+
+
+
+  .fog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(30, 30, 30, 0.5);
+  }
+
+
+
+
+
+
+
+        /* https://www.w3schools.com/howto/howto_css_cards.asp */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            /* width: 25%; */
+        }
+        .card:hover {
+            box-shadow: 0 8px 7px 0 rgba(0,0,0,0.2);
+        }
+        .thumbnail-container>img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 7px;
+            border-radius: 10px;
+            outline: none;
+            border: 0;
+        }
+        .thumbnail-container {
+            width: 100%;
+        }
+
+        .parent-card-container {
+            width: 230px;
+        }
+        .desc-container {
+            padding: 0px 15px;
+            max-width: 230px;
+        }
+        .wrong-size {
+            background-color: yellow;
+        }
+        .caption>p {
+            margin-top: 1px !important;
+            margin-bottom: 1px !important;
+        }

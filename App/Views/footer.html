@@ -1,0 +1,151 @@
+            </div>
+        </div>
+    </main>
+
+    <div class="fog hidden"><div class="loader"></div></div>
+
+    <script src="/esg/v2/assets/js/esg.v2.js?t=1"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+
+
+        function hideDD() {
+            var $dropdown = $('.search-results');
+            $dropdown.removeClass("dropdown-show");
+            $dropdown.addClass("dropdown-hidden");
+        }
+        function showDD() {
+            var $dropdown = $('.search-results');
+            $dropdown.removeClass("dropdown-hidden");
+            $dropdown.addClass("dropdown-show");
+        }
+        function hideLoader() {
+            $('.fog').addClass("hidden");
+        }
+        function showLoader() {
+            $('.fog').removeClass("hidden");
+        }
+
+        function searchAPI( phrase ) {
+            // employees/search/keyword
+            $.get( "{{@BASE}}/search/" + phrase, function( data ) {
+                var $ul = $('#search-ul');
+                $ul.empty();
+                // debugger;
+
+                $.each(data, function( index, item ) {
+                    var li = '<li><a href="{{@BASE}}/e/'+ item.id +'" class="block">'
+                        + '<div class="inner-search wrap">'
+                        + '<img src="'+ item.image +'" class="pic-thumb search-pic">'
+                        + '<p class="list-item">'+ item.lastname +', '+ item.firstname +'</p> </div> </a> </li>';
+                    // console.log( li );
+                    $ul.append( li );
+                });
+                showDD();
+                hideLoader();
+            });
+        }
+
+        var timeout = null;
+        var waitForJQuery = setInterval(function () {
+
+            if (window.jQuery) {
+                clearInterval(waitForJQuery);
+
+                if ( !!navigator.userAgent.match(/Trident\/7\./) ) {  //-- ie11
+                    $("<link/>", {
+                        rel: "stylesheet",
+                        type: "text/css",
+                        href: "{{@BASE}}/css/ie11.css"
+                        }).appendTo("head");
+                }
+
+
+                $('.search-box').on("focus",function() {
+                    if ( $(this).val().length>0 ) {
+                        showDD();
+                    }
+                });
+
+                // place your code here.
+                // $('.search-box').on("keyup",function (event) {
+                $(document).on("keyup",".search-box",function(event) {
+                    // debugger;
+                    var $search = $(this);
+                    var search = $search.val();
+
+                    //-- http://www.javascripter.net/faq/keycodes.htm
+                    //-- http://www.asciitable.com/
+                    if ( event.which==27 || ( event.which>=33 && event.which<=40 ) ) {
+                        return;
+                    }
+                    if ( event.which != 8 /* BS */ ) {
+                        if ( event.which < 97 /* a */ || event.which > 122 /* z */ )  {
+                            if ( event.which < 65 /* A */ || event.which > 90 /* Z */ ) {
+                                return;
+                            }
+                        }
+                    }
+                    if ( search.length>2 ) {
+                        //-- https://jsfiddle.net/Calou/xUDPR/
+                        clearTimeout(timeout)
+                        timeout = setTimeout(function() {
+                            showLoader();
+                            searchAPI( search );
+                        }, 350);
+                    } else {
+                        setTimeout(function() {
+                            hideLoader();
+                            hideDD();
+                        },0);
+                    }
+                });
+                $(document).on("click",function(e) {
+                    var dd = document.getElementsByClassName("dropdown-content");
+                    if (
+                        ( dd && dd.length==1 & dd[0].contains(e.target) )
+                        ||
+                        e.target.classList.contains("search-box")
+                    ) {
+                        // do nothing here, what was clicked is inside the search dropdown
+                    } else {
+                        hideDD();
+                    }
+                });
+            } else { //--end of waiting on jquery
+                // console.log( "jquery not loaded" )
+            }
+        }, 10);
+
+
+        <check if="{{ @isHome==true }}">
+            <true>
+                //-- #employees/eid
+                //-- #employees/org/oid
+                // console.log(window.location.hash);
+                if ( window.hasOwnProperty("location") ) {
+                    if ( window.location.hasOwnProperty("hash") ) {
+                        if ( window.location.hash.length>0 ) {
+                            var h = window.location.hash;
+                            var a = h.split("/");
+                            if ( h.indexOf("#employees/org/")!=-1 ) {
+                                var o = a[2];
+                                var l = "{{@BASE}}{{ 'byorg' , 'orgid='." " | alias }}";
+                                window.location = l + o;
+                            } else if ( h.indexOf("#employees/")!=-1 ) {
+                                var e = a[1];
+                                var l = "{{@BASE}}{{ 'employee' , 'empno='." " | alias }}";
+                                // console.log("l==["+l+"]");
+                                window.location = l + e;
+                            }
+                        }
+                    }
+                }
+            </true>
+        </check>
+
+    </script>
+
+</body>
+</html>

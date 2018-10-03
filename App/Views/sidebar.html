@@ -1,0 +1,25 @@
+<aside class="sidebar">
+    <div class="sidebar-wrapper">
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-wrapper">
+                <img src="/esg/v2/assets/img/dynetics-logo-white.svg" class="w-100" alt="">
+            </div>
+        </div>
+        <div class="sidebar-links-wrapper">
+            <div class="site-title">
+                <div class="site-title-wrapper">
+                    <a href="{{@BASE}}/">Pictorial</a>
+                </div>
+                <div class="site-links">
+                    <ul class="site-links-list">
+                        <repeat group="{{ @sideBarLinks }}" value="{{ @idiv }}">
+                            <li>
+                                <a href="{{ @idiv[0] }}" id="{{ @idiv[1] }}">{{ @idiv[2] }}</a>
+                            </li>
+                        </repeat>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

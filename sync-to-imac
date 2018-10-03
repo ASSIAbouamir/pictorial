@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# rsync --dry-run -r -a -v -e ssh . perry@work-imac:/Users/perry/Temp/dev/f3/pictorial/
+
+rsync -r -a -v -e ssh . perry@work-imac:/Users/perry/Temp/dev/f3/pictorial/

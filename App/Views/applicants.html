@@ -1,0 +1,33 @@
+
+
+<!-- content goes here -->
+
+        <table class="table striped table-fixed">
+            <thead>
+                <tr>
+                    <th>Applicant</th>
+                    <th>Job Title</th>
+                    <th>Degree/GPA</th>
+                    <th>Desired Salary</th>
+                </th>
+            </thead>
+
+            <tbody>
+                <repeat group="{{ @applicants }}" value="{{ @applicant }}">
+                    <tr>
+                        <td>
+                            <a href="{{@BASE}}{{ 'application' , 'apkid='.@applicant->applicant_pkid.',ujpkid='.@applicant->user_job_pkid | alias }}">{{ @applicant->last_name }}, {{ @applicant->first_name }}</a>
+                        </td>
+                        <td>
+                            {{ @applicant->job_title }}
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" data-tip="{{ @applicant->school_name }} - {{ @applicant->degree }}">{{ @applicant->major_gpa }}</a>
+                        </td>
+                        <td>
+                            {{ @applicant->salary_desired }}
+                        </td>
+                    </tr>
+                </repeat>
+            </tbody>
+        </table>

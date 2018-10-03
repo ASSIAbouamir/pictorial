@@ -1,0 +1,167 @@
+.container{
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+}
+.wrapper {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+}
+
+
+.cards {
+    background-color: transparent !important;
+}
+
+/* https://www.w3schools.com/howto/howto_css_cards.asp */
+.card, .reports-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    /* width: 25%; */
+}
+.card:hover, .reports-card:hover {
+    box-shadow: 0 8px 7px 0 rgba(0,0,0,0.2);
+}
+.reports-card {
+    margin: 0.5rem;
+    background-color: #f9fbfd;
+    border: 1px solid rgba(170,170,170,0.5);
+}
+.reports-card > h2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.thumbnail-container>img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 7px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+}
+.mini-thumbnail-container {
+    padding: 10% 0;
+}
+.thumbnail-container {
+    /* width: 100%; */
+    float: left;
+    padding-left: 5px;
+}
+
+.parent-card-container {
+    /* width: 235px; */
+}
+.desc-container {
+    padding: 0px 15px;
+    max-width: 235px;
+    /* text-align: center; */
+    float: left;
+}
+.wrong-size {
+    background-color: yellow;
+}
+.caption>p {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+.desc-container>h2,
+.desc-container>h4,
+.desc-container>h5,
+.detail>h5
+{
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+
+
+.details {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.details-p {
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.direct-reports {
+    max-width: 500px;
+    min-width: 235px;
+}
+
+a:visited {
+    color: #0068b0 !important;
+}
+.site-title-wrapper > a {
+    color: white !important;
+}
+
+
+
+
+
+.e2-pic>img {
+    display: block;
+    margin-top: 7px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+}
+
+.e2-caption{
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+.e2-dl {
+    margin-left: 0px;
+    margin-top: 40px;
+}
+.e2-dl > dt {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9em;
+    width: 150px;
+    text-align: right;
+}
+.e2-dl > dd {
+    display: inline-block;
+    margin-left: 4px;
+}
+
+
+.outer {
+    display: block;
+    height: 56px;
+    margin: auto;
+}
+.inner:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+a>.inner>h4 {
+    display: inline-block;
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+a>.inner>img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 7px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+}
+a>.inner>img {
+    display: inline-block;
+}
+
+.pic-full {
+    width: 224px;
+    height: 168px;
+}
+.pic-thumb {
+    width: 56px;
+    height: 42px;
+}

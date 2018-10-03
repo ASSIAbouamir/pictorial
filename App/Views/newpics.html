@@ -1,0 +1,56 @@
+<h1>ADMIN - New Pics</h1>
+
+<form action="{{@BASE}}/newpics-save" method="post">
+
+    <input type="hidden" name="reject-these" id="reject-these" value="0">
+
+
+    <div class="cards flex row wrap">
+        <repeat group="{{ @data }}" value="{{ @empl }}">
+
+            <div class='card{{@empl->wrong_size_class}}'>
+                <div class='parent-card-container'>
+                    <div class='thumbnail-container'>
+                        <img src='data:image/jpeg;base64,{{ @empl->full_img }}' width='224' height='168'>
+                    </div>
+                    <div class='desc-container'>
+                        {{ @empl->size | raw }}
+                        <label>
+                            <h4>
+                                <input type='checkbox' name='emp_no[]' value='{{ @empl->emp_no }}' class='checkbox'>
+                                <span class='caption'>{{ @empl->caption | raw }}</span>
+                            </h4>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </repeat>
+    </div>
+
+</form>
+
+<script>
+    (function() {
+        var timeout = null;
+        var waitForJQuery = setInterval(function () {
+
+            if (window.jQuery) {
+                clearInterval(waitForJQuery);
+
+                $(document).on("click","#check-all",function(e){
+                    $(document).find("form input:checkbox").prop("checked",true);
+                });
+                $(document).on("click","#save-imports",function(e){
+                    $(document).find("form").trigger("submit");
+                });
+                $(document).on("click","#reject-imports",function(e) {
+                    $("#reject-these").val('1');
+                    $(document).find("form").trigger("submit");
+                });
+            } else { //--end of waiting on jquery
+                // console.log( "jquery not loaded" )
+            }
+        }, 10);
+    })();
+</script>
