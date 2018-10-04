@@ -31,9 +31,10 @@
                 </check>
             </h5>
             <h5>
+                <b>MGR:</b>
                 <check if="{{ @data->mgr!='' }}">
                     <true>
-                        <b>MGR:</b> <a href="{{@BASE}}{{ 'employee' , 'empno='.@data->managerid | alias }}">{{ @data->mgr  | upper}}</a>
+                        <a href="{{@BASE}}{{ 'employee' , 'empno='.@data->managerid | alias }}">{{ @data->mgr  | upper}}</a>
                     </true>
                     <false>
                         not set
