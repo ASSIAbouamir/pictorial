@@ -35,11 +35,14 @@
                 // debugger;
 
                 $.each(data, function( index, item ) {
+                    var company = "";
+                    if ( item.company!=='Dynetics' ) {
+                        company = " ("+ item.company +")";
+                    }
                     var li = '<li><a href="{{@BASE}}/e/'+ item.id +'" class="block">'
                         + '<div class="inner-search wrap">'
                         + '<img src="'+ item.image +'" class="pic-thumb search-pic">'
-                        + '<p class="list-item">'+ item.lastname +', '+ item.firstname +'</p> </div> </a> </li>';
-                    // console.log( li );
+                        + '<p class="list-item">'+ item.lastname +', '+ item.firstname + company +'</p> </div> </a> </li>';
                     $ul.append( li );
                 });
                 showDD();
@@ -68,10 +71,7 @@
                     }
                 });
 
-                // place your code here.
-                // $('.search-box').on("keyup",function (event) {
                 $(document).on("keyup",".search-box",function(event) {
-                    // debugger;
                     var $search = $(this);
                     var search = $search.val();
 
@@ -116,6 +116,8 @@
             } else { //--end of waiting on jquery
                 // console.log( "jquery not loaded" )
             }
+
+            $('.search-box').focus();
         }, 10);
 
 
