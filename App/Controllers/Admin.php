@@ -109,6 +109,32 @@ class Admin extends App {
         $this->renderLayoutTemplate( "newpics.html" );
     }//--end of newpics
 
+    function nopics(  ) {
+
+        $sql = "
+            select q.emp_no, q.last_name, q.first_name, q.company
+              from (
+                    select first_name, last_name, emp_no, company
+                        from ad
+                    where emp_no not in (select emp_no from pics)
+                    UNION
+                    select first_name, last_name, emp_no, company
+                            from other_ad
+                    where emp_no not in (select emp_no from pics)
+                    ) as q
+            order by company desc, emp_no;
+        ";
+        $res = $this->db->db_query( $sql );
+        $num = $this->db->db_num_rows( $res );
+        $rows = [];
+        for ($i=0; $i < $num; $i++) {
+            $rows[] = $this->db->db_fetch_object( $res, $i );
+        }
+        $this->p_f3->set( "data", $rows );
+        $this->p_f3->set( "sideBarLinks", $this->sideBarLinks );
+        $this->renderLayoutTemplate( "nopics.html" );
+    }//--end of nopics
+
     function newpicsSave() {
         // print '<pre>';
         // print_r( $_POST );

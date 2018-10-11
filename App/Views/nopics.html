@@ -1,0 +1,20 @@
+<h1>ADMIN - Empl NO Pics</h1>
+
+<table class="table striped flattened">
+    <thead>
+        <tr>
+            <th>EE#</th>
+            <th>Name</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <repeat group="{{ @data }}" value="{{ @empl }}">
+            <tr>
+                <td>{{ @empl->emp_no }}</td>
+                <td>{{ @empl->last_name }}, {{ @empl->first_name }}</td>
+                <td>{{ @empl->company }}</td>
+            </tr>
+        </repeat>
+    </tbody>
+</table>
