@@ -23,7 +23,13 @@ class App {
         ];
 
         $this->db = new Db( "pgsql" );
-        $dbConn = $this->db->db_connect( "10.1.18.25", "dats", "br549", "dats_dev_sep_2018" );
+        // $dbConn = $this->db->db_connect( "10.1.18.25", "dats", "br549", "dats_dev_sep_2018" );
+        $dbConn = $this->db->db_connect(
+            getenv("PICTORIAL_HOST"),
+            getenv("PICTORIAL_UID"),
+            getenv("PICTORIAL_PWD"),
+            getenv("PICTORIAL_DB")
+        );
 
         $this->p_f3 = \Base::instance();
         $this->isHome = false;
