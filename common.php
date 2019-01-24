@@ -12,8 +12,8 @@ if (
 
     define( "HTTP_SERVER"  , "http://{$_SERVER["SERVER_NAME"]}" );
 
-    define( "PICTORIAL_HOST", "10.1.18.25" );
-    define( "PICTORIAL_DB"  , "dats_temp_dev_sep_2018" );
+    define( "PICTORIAL_HOST", "10.1.18.54" );
+    define( "PICTORIAL_DB"  , "dats_temp_dev_jan_2019" );
 
     $debug = true;
     define( "DEBUG", true );
