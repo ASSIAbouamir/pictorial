@@ -90,10 +90,6 @@ class Employee extends App {
 
     function search( ) {
         $searchString = $this->p_f3->get("PARAMS.search");
-        // print '<pre>';
-        // print_r( $searchString );
-        // print '</pre>';
-        // exit;
         $empls = json_decode(
             Util::CallAPI(
                 "GET",
@@ -102,10 +98,6 @@ class Employee extends App {
                 $this->p_f3->get("isDev")
             )
         );
-        // print '<pre>';
-        // print_r( $empls );
-        // print '</pre>';
-        // exit;
         foreach ($empls as $empl) {
             $empl->image = $this->img( $empl );
         }
