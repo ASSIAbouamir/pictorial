@@ -3,8 +3,8 @@
 
 class Util {
 
-    private static $prod_apiBaseUrl = "https://ea.in.dynetics.com/pic/api/";
-    private static $dev_apiBaseUrl  = "http://web-dev1.in.dynetics.com/lance_test/pic/api/";
+    private static $prod_apiBaseUrl = "https://internal-prod/pic/api/";
+    private static $dev_apiBaseUrl  = "http://internal-dev/lance_test/pic/api/";
 
     //-- Constructor
     function __construct() {
