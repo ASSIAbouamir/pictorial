@@ -5,13 +5,9 @@ class Admin extends App {
     public $sideBarLinks;
 
     function __construct() {
-        // call Grandpa's constructor
         parent::__construct();
 
         $this->sideBarLinks = [
-            //-- <a href="javascript:void(0)" id='check-all'>Check All</a>
-            //-- <a href="javascript:void(0)" id='save-imports'>Save Imports</a>
-            //-- <a href="javascript:void(0)" id='reject-imports'>Reject Selected</a>
             [ 'javascript:void(0)', 'check-all', 'Check All' ],
             [ 'javascript:void(0)', 'save-imports', 'Save Imports' ],
             [ 'javascript:void(0)', 'reject-imports', 'Reject Selected' ]
@@ -29,18 +25,13 @@ class Admin extends App {
     function beforeRoute( $f3, $params, $routeMethod ) {
         if ( $routeMethod=='Admin->newpics' ) {
             //-- check if allowed
-            if ( ! in_array( $f3->get('rUser'), array( 'perry', 'baskin', 'hughesm' ) ) ) {
+            if ( ! in_array( $f3->get('rUser'), array( 'uid1', 'uid2', 'uid3' ) ) ) {
                 $f3->reroute("/");
             }
         }
     }//--end of beforeRoute
 
     function newpics(  ) {
-        // print '<pre>';
-        // print_r( $this );
-        // print '</pre>';
-        // exit;
-
         $sql = "
             select a.fullname, a.location,
                 CASE WHEN a.fullname is null THEN '0'
@@ -136,10 +127,6 @@ class Admin extends App {
     }//--end of nopics
 
     function newpicsSave() {
-        // print '<pre>';
-        // print_r( $_POST );
-        // print '</pre>';
-        // exit;
         $p = $_POST;
         $this->db->db_query( "BEGIN" );
         if ( isset( $p['reject-these'] ) && $p['reject-these']=='1' ) {
@@ -150,10 +137,6 @@ class Admin extends App {
                             rejected = true
                       where emp_no = '{$empno}'
                 ";
-                // print '<pre>';
-                // print_r( $updateSql );
-                // print '</pre>';
-                // exit;
                 $updateRes = $this->db->db_query( $updateSql );
                 if ( ! $updateRes ) {
                     $this->db->db_query( "ROLLBACK" );
@@ -191,10 +174,6 @@ class Admin extends App {
                         )
                     ";
                 }
-                // print '<pre>';
-                // print_r( $dmlSql );
-                // print '</pre>';
-                // exit;
                 $dmlRes = $this->db->db_query( $dmlSql );
                 if ( ! $dmlRes ) {
                     $this->db->db_query( "ROLLBACK" );
