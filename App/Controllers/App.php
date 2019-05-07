@@ -17,13 +17,9 @@ class App {
     public $allOrgs;
     public $isHome;
     public function __construct() {
-        $this->baseSideBarLinks = [
-            // [ '/last10', 'Last 10 Applied' ],
-            // [ '/upcoming-interviews', 'Upcoming Interviews' ]
-        ];
+        $this->baseSideBarLinks = [];
 
         $this->db = new Db( "pgsql" );
-        // $dbConn = $this->db->db_connect( "10.1.18.25", "dats", "br549", "dats_dev_sep_2018" );
         $dbConn = $this->db->db_connect(
             getenv("PICTORIAL_HOST"),
             getenv("PICTORIAL_UID"),
@@ -36,11 +32,6 @@ class App {
         if ( $this->p_f3->get('PATH')=='/' ) {
             $this->isHome = true;
         }
-        // print '<pre>';
-        // print_r( $this->p_f3 );
-        // print '</pre>';
-        // exit;
-
         $this->allOrgs = Employee::allOrgs();
 
         $this->setSideBarLinks();
