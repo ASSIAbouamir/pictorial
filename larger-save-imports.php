@@ -1,5 +1,5 @@
 <?php
-
+//-- used like a shell script to process new files
 require_once( "common.php" );
 
 $p = $_POST;
